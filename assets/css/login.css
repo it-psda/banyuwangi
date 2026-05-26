@@ -1,0 +1,44 @@
+.login-wrapper {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+.login-card {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+}
+
+
+.login-header {
+
+  background: #0d47a1;
+
+  color: white;
+
+  padding: 30px;
+
+  text-align: center;
+
+}
+
+
+.login-body {
+
+  padding: 30px;
+
+}

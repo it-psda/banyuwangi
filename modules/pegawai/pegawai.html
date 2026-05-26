@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Data Pegawai</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container py-4">
+
+  <h2 class="mb-4">
+    DATA PEGAWAI
+  </h2>
+
+  <button
+    class="btn btn-primary mb-3"
+    onclick="loadPegawai()">
+
+    Refresh
+
+  </button>
+
+  <table class="table table-bordered">
+
+    <thead>
+
+      <tr>
+
+        <th>Nama</th>
+        <th>NIP</th>
+        <th>Jabatan</th>
+        <th>UPT</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody id="pegawaiTable"></tbody>
+
+  </table>
+
+</div>
+
+<script src="../../assets/js/config.js"></script>
+<script src="../../assets/js/api.js"></script>
+
+<script>
+
+async function loadPegawai() {
+
+  const response = await apiGet(
+    '?action=read&table=pegawai'
+  );
+
+  let html = '';
+
+  response.data.forEach(item => {
+
+    html += `
+
+      <tr>
+
+        <td>${item.nama_lengkap}</td>
+        <td>${item.nip}</td>
+        <td>${item.jabatan}</td>
+        <td>${item.upt}</td>
+
+      </tr>
+
+    `;
+
+  });
+
+  document.getElementById('pegawaiTable')
+  .innerHTML = html;
+
+}
+
+loadPegawai();
+
+</script>
+
+</body>
+</html>
